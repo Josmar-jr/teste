@@ -4,7 +4,114 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
     <title>oi2</title>
   </head>
-  <body></body>
+  <body>
+    <div id="chart"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+      var options = {
+        toolbar: {
+          enabled: false,
+        },
+        grid: {
+          borderColor: "transparent",
+          strokeDashArray: 0,
+        },
+        tooltip: {
+          custom: () => {
+            return `<div class="custom-tooltip">
+                      <p>Ele está dentro dos 20% 
+                        </br> 
+                        com nota 800</p>
+                      <span>20%</span>
+                    </div>`;
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        items: {
+          display: "block",
+        },
+        chart: {
+          type: "bar",
+          width: "600px",
+        },
+        series: [
+          {
+            name: "sales",
+            data: [100, 60, 489, 600, 385, 740, 1000],
+          },
+        ],
+
+        fill: {
+          colors: ["#282c35"],
+          opacity: 1,
+        },
+        xaxis: {
+          categories: [
+            "simulado 1",
+            "simulado 2",
+            "simulado 3",
+            "simulado 4",
+            "simulado 5",
+            "simulado 6",
+            "simulado 7",
+          ],
+          labels: {
+            style: {
+              colors: "#282C35",
+              fontWeight: "bold",
+              fontSize: "12px",
+              width: "90px",
+            },
+          },
+          axisTicks: {
+            show: false,
+          },
+          axisBorder: {
+            color: "#282C35",
+            height: 5,
+            width: "100%",
+            offsetX: 0,
+            offsetY: 0,
+          },
+        },
+        yaxis: {
+          labels: {
+            show: true,
+            align: "right",
+            minWidth: 0,
+            maxWidth: 160,
+            style: {
+              colors: [],
+              fontSize: "1.25rem",
+              fontFamily: "Helvetica, Arial, sans-serif",
+              fontWeight: 600,
+              // cssClass: "alguma class",
+            },
+            offsetX: 0,
+            offsetY: 0,
+            rotate: 0,
+          },
+        },
+        plotOptions: {
+          bar: {
+            columnWidth: "75%",
+            distributed: true,
+          },
+        },
+        legend: {
+          show: false,
+        },
+      };
+
+      var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+      chart.render();
+    </script>
+  </body>
 </html>
